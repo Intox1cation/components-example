@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример компонентов сборки</title>
+  <link rel="preload" as="style" href="./assets/css/libs.css">
+  <link rel="preload" as="style" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap&_v=20230621112925"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/libs.css?_v=20230621112925">
+  <link rel="stylesheet" href="./assets/css/style.css?_v=20230621112925">
+
+  <script src="./assets/js/bundle.min.js?_v=20230621112925" defer></script>
+
+  <style>
+    .loader {
+      transition: opacity 275ms ease-out;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      z-index: 99999;
+      opacity: 1;
+    }
+
+    .loader img {
+      width: auto;
+      height: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader">
+    <img src="./assets/images/loader.svg" alt="">
+  </div>
+  <div class="wrapper flex flex-column">
+    <wc-toast position="top-right"></wc-toast>
+    <header class="header header_sticky">
+  <div class="container">
+    <div class="header__inner">
+      <div class="logo">
+        <img class="img img_vertical" src="./assets/images/logo.svg" alt="">
+      </div>
+      <div class="navigation indent-left-4"><nav class="navigation__menu menu" id="main-menu" data-mobile-container="main-menu">
+  <div class="menu__header">
+    <button class="button button_text" data-menu-back>
+      <span class="button__icon icon icon-menu-back"></span>
+      Назад
+    </button>
+    <button class="button button_text button_icon" data-mobile-close="main-menu">
+      <span class="icon icon-close"></span>
+    </button>
+  </div>
+  <div class="menu__inner">
+    <div class="menu__list">
+      <div class="menu__item menu__item_active menu-item">
+        <a href="#" data-smooth-scroll="example-icons">Иконки</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-form">Формы</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-accordion">Аккордеон</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-menu">Меню</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-tabs">Табы</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-slider">Слайдеры</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-modals">Модалки</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-lightbox">Лайтбокс</a>
+      </div>
+      <div class="menu__item menu-item">
+        <a href="#" data-smooth-scroll="example-ui">UI</a>
+      </div>
+    </div>
+  </div>
+</nav></div>
+      <button class="icon icon-menu-bar" data-mobile-open="main-menu"></button>
+    </div>
+  </div>
+</header>
+    <main class="main flex-grow-1 overflow-h">
+      <div class="container">
+        <div class="row row-gap-2 indent-top-0" id="example-icons">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Иконки модулей
+    </div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="tab" data-tab>
+      <div class="tab__header" data-tab-header>
+        <button class="tab__button" data-tab-item data-active>Вспомогательные</button>
+        <button class="tab__button" data-tab-item>Аккордеон</button>
+        <button class="tab__button" data-tab-item>Меню</button>
+        <button class="tab__button" data-tab-item>Слайдер</button>
+        <button class="tab__button" data-tab-item>Форма с шагами</button>
+        <button class="tab__button" data-tab-item>Stepper</button>
+        <button class="tab__button" data-tab-item>Checkbox</button>
+        <button class="tab__button" data-tab-item>Image zoom</button>
+      </div>
+      <div class="tab__content">
+        <!-- Вспомогательные -->
+        <div class="tab__body" data-tab-body data-active>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-hastag"></div>
+  <div class="text-normal text-weight-500 indent-top-2">hastag</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-love"></div>
+  <div class="text-normal text-weight-500 indent-top-2">love</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-unlike"></div>
+  <div class="text-normal text-weight-500 indent-top-2">unlike</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-like"></div>
+  <div class="text-normal text-weight-500 indent-top-2">like</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Аккордеон -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-chevron"></div>
+  <div class="text-normal text-weight-500 indent-top-2">chevron</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Меню -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-menu-back"></div>
+  <div class="text-normal text-weight-500 indent-top-2">menu-back</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-close"></div>
+  <div class="text-normal text-weight-500 indent-top-2">close</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-menu-bar"></div>
+  <div class="text-normal text-weight-500 indent-top-2">menu-bar</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайдер -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-slider-prev"></div>
+  <div class="text-normal text-weight-500 indent-top-2">slider-prev</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-slider-next"></div>
+  <div class="text-normal text-weight-500 indent-top-2">slider-next</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Форма с шагами -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-step-prev"></div>
+  <div class="text-normal text-weight-500 indent-top-2">step-prev</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-step-next"></div>
+  <div class="text-normal text-weight-500 indent-top-2">step-next</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Stepper -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-minus"></div>
+  <div class="text-normal text-weight-500 indent-top-2">minus</div>
+</div>
+            </div>
+
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-plus"></div>
+  <div class="text-normal text-weight-500 indent-top-2">plus</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Checkbox -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-check"></div>
+  <div class="text-normal text-weight-500 indent-top-2">check</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Image zoom -->
+        <div class="tab__body" data-tab-body>
+          <div class="row row-gap-2">
+            <div class="col">
+              <div class="flex flex-column items-center">
+  <div class="icon icon_big icon-zoom-in"></div>
+  <div class="text-normal text-weight-500 indent-top-2">zoom-in</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-form">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Формы</div>
+  </div>
+
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="tab" data-tab>
+      <div class="tab__header" data-tab-header>
+        <button class="tab__button" data-tab-item>Обычная форма</button>
+        <button class="tab__button" data-tab-item data-active>Форма с шагами</button>
+      </div>
+      <div class="tab__content">
+        <div class="tab__body" data-tab-body>
+          <form action="#" class="form" id="form">
+            <div class="form__inner">
+              <div class="row row-items-8 row-gap-1 row-md-gap-y-1 row-gap-y-2">
+                <div class="col-sm-8 col-lg-4 col-3">
+                  <div class="field-box">
+                    <span class="field-box__name">Email <span>*</span></span>
+                    <div class="field">
+                      <input type="email" inputmode="email" class="field__input" name="email"
+                        placeholder="Введите Ваш почтовый адрес" value="">
+                    </div>
+                    <div class="field-box__error" data-field-error></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-8 col-lg-4 col-5">
+                  <div class="field-box">
+                    <span class="field-box__name">Имя/фамилия <span>*</span></span>
+                    <div class="field">
+                      <input type="text" class="field__input" name="name" placeholder="Введите Ваше ФИО" value="">
+                    </div>
+                    <div class="field-box__error" data-field-error></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-8 col-4">
+                  <div class="field-box">
+                    <span class="field-box__name">Телефон <span>*</span></span>
+                    <div class="field">
+                      <div class="field__select">
+                        <select data-select data-select-phone>
+                          <option data-display="Select" value="+375">+375</option>
+                          <option value="+48">+48</option>
+                          <option value="+7">+7</option>
+                        </select>
+                      </div>
+                      <input type="text" class="field__input" name="phone"
+                        data-placeholder="Введите Ваш номер телефона...">
+                    </div>
+                    <div class="field-box__error" data-field-error></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-8 col-4">
+                  <div class="field-box">
+                    <span class="field-box__name">Тема письма</span>
+                    <div class="field">
+                      <input type="text" class="field__input" name="subject" placeholder="Введите текст" value="">
+                    </div>
+                    <div class="field-box__error" data-field-error></div>
+                  </div>
+                </div>
+
+                <div class="col-8">
+                  <div class="field-box">
+                    <span class="field-box__name">Сообщение</span>
+                    <div class="field">
+                      <textarea class="field__input" name="message" placeholder="Ваше сообщение"></textarea>
+                    </div>
+                    <div class="field-box__error" data-field-error></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__controls">
+              <div class="step-form-submit">
+                <button class="button button_primary button_filled button_small" type="submit">Отправить</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tab__body" data-tab-body data-active>
+          <form action="#" id="form_request" class="form step-form">
+  <div class="form__process step-form-process">
+    <div class="step-form-process__progress step-form-progress"></div>
+    <div class="step-form-process__inner">
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">1</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 1</span>
+          <span>Укажите данные Вашей почты и имя/фамилию</span>
+        </div>
+      </div>
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">2</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 2</span>
+          <span>Чтобы связаться с Вами нам необходим Ваш номер телефона</span>
+        </div>
+      </div>
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">3</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 3</span>
+          <span>Опишите вашу проблему</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form__inner step-form-body">
+    <fieldset class="form__step step-form-item">
+      <div class="row row-gap-1 row-gap-y-2">
+        <div class="col-md-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Email <span>*</span></span>
+            <div class="field">
+              <input type="email" inputmode="email" class="field__input" name="email" placeholder="Ваша почта..."
+                value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Имя/фамилия <span>*</span></span>
+            <div class="field">
+              <input type="text" class="field__input" name="name" placeholder="Ваше имя..." value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="field-box">
+            <span class="field-box__name">Телефон <span>*</span></span>
+            <div class="field">
+              <div class="field__select">
+                <select data-select data-select-phone>
+                  <option data-display="Select" value="+375">+375</option>
+                  <option value="+48">+48</option>
+                  <option value="+8">+8</option>
+                </select>
+              </div>
+              <input type="text" class="field__input" name="phone" data-placeholder="Ваш номер телефона...">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </fieldset>
+
+    <fieldset class="form__step step-form-item">
+      <div class="row row-gap-1 row-gap-y-2">
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Дополнительные данные</span>
+            <div class="field">
+              <input type="text" class="field__input" name="phone" placeholder="@vasia.pupkin" value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Тема</span>
+            <div class="field">
+              <input type="text" class="field__input" name="subject" placeholder="Тема письма..." value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form__step step-form-item">
+      <div class="row">
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Сообщение</span>
+            <div class="field">
+              <textarea class="field__input" name="message" placeholder="Текст Вашего сообщения..."></textarea>
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="form__controls step-form-controls">
+    <div class="step-form-prev">
+      <button class="button button_primary button_outlined button_small" type="button">
+        <span class="button__icon icon icon-step-prev"></span>
+        Назад
+      </button>
+    </div>
+    <div class="step-form-next">
+      <button class="button button_primary button_outlined button_small" type="button">
+        Далее
+        <span class="button__icon button__icon_right icon icon-step-next"></span>
+      </button>
+    </div>
+    <div class="step-form-submit">
+      <button class="button button_secondary button_filled button_small" type="submit">Отправить</button>
+    </div>
+  </div>
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-accordion">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Аккордеон</div>
+  </div>
+
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="accordion" data-accordion data-single>
+      <div class="accordion-item" data-accordion-item>
+        <div class="accordion-item__header" data-accordion-head>
+          <span class="accordion-item__title">Пункт 1</span>
+        </div>
+        <div class="accordion-item__body" data-accordion-body>
+          <div class="accordion-item__body-inner">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quibusdam.</p>
+            <p>Lorem ipsum dolor sit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident architecto aut incidunt, atque
+              harum
+              culpa hic officiis quaerat consequuntur nulla dolorum autem.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia id nam laudantium! Quasi doloremque non
+              possimus?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-accordion-item>
+        <div class="accordion-item__header" data-accordion-head>
+          <div class="accordion-item__icon icon icon-hastag"></div>
+          <span class="accordion-item__title">Пункт 2</span>
+        </div>
+        <div class="accordion-item__body" data-accordion-body>
+          <div class="accordion-item__body-inner">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quibusdam.</p>
+            <p>Lorem ipsum dolor sit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident architecto aut incidunt, atque
+              harum
+              culpa hic officiis quaerat consequuntur nulla dolorum autem.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia id nam laudantium! Quasi doloremque non
+              possimus?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-accordion-item>
+        <div class="accordion-item__header" data-accordion-head>
+          <span class="accordion-item__title">Пункт 3</span>
+        </div>
+        <div class="accordion-item__body" data-accordion-body>
+          <div class="accordion-item__body-inner">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quibusdam.</p>
+            <p>Lorem ipsum dolor sit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident architecto aut incidunt, atque
+              harum
+              culpa hic officiis quaerat consequuntur nulla dolorum autem.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia id nam laudantium! Quasi doloremque non
+              possimus?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-menu">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">
+      Меню
+    </div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="row row-gap-1">
+      <div class="col-12">
+        <div class="text-big text-weight-600 text-color-second flex-inline">
+          Обычное меню
+        </div>
+      </div>
+
+      <div class="col-12 flex justify-end">
+        <button class="button button_primary button_text button_icon" data-mobile-open="single-menu">
+          <span class="button__icon icon icon-menu-bar"></span>
+        </button>
+
+        <nav class="menu" id="single-menu" data-mobile-container="single-menu">
+          <div class="menu__header">
+            <button class="button button_text" data-menu-back>
+              <span class="button__icon icon icon-menu-back"></span>
+              Назад
+            </button>
+            <button class="button button_text button_icon" data-mobile-close="single-menu">
+              <span class="icon icon-close"></span>
+            </button>
+          </div>
+          <div class="menu__inner">
+            <div class="menu__list">
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 1</a>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 2</a>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 3</a>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 4</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="col-12">
+        <div class="text-big text-weight-600 text-color-second flex-inline">
+          Вложенное меню
+        </div>
+      </div>
+
+      <div class="col-12 flex justify-end">
+        <button class="button button_primary button_text button_icon" data-mobile-open="nested-menu">
+          <span class="button__icon icon icon-menu-bar"></span>
+        </button>
+
+        <nav class="menu" id="nested-menu" data-mobile-container="nested-menu">
+          <div class="menu__header">
+            <button class="button button_text" data-menu-back>
+              <span class="button__icon icon icon-menu-back"></span>
+              Назад
+            </button>
+            <button class="button button_text button_icon" data-mobile-close="nested-menu">
+              <span class="icon icon-close"></span>
+            </button>
+          </div>
+          <div class="menu__inner">
+            <div class="menu__list">
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 1</a>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 2</a>
+                <div class="menu__child submenu menu-child">
+                  <ul class="submenu__list">
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 1</a>
+                    </li>
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 2</a>
+                    </li>
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 3</a>
+                    </li>
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 4</a>
+                      <div class="submenu__child submenu menu-child">
+                        <ul class="submenu__list">
+                          <li class="submenu__item menu-item">
+                            <a href="#">Третий уровень 1</a>
+                          </li>
+                          <li class="submenu__item menu-item">
+                            <a href="#">Третий уровень 2</a>
+                            <div class="submenu__child submenu menu-child">
+                              <ul class="submenu__list">
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 4</a>
+                                </li>
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 5</a>
+                                </li>
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 6</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="submenu__item menu-item">
+                            <a href="#">Третий уровень 3</a>
+                            <div class="submenu__child submenu menu-child">
+                              <ul class="submenu__list">
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 1</a>
+                                </li>
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 2</a>
+                                </li>
+                                <li class="submenu__item menu-item">
+                                  <a href="#">Четвертый уровень 3</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 5</a>
+                    </li>
+                    <li class="submenu__item menu-item">
+                      <a href="#">Подпункт 6</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 3</a>
+              </div>
+              <div class="menu__item menu-item">
+                <a href="#">Пункт 4</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-tabs">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Табы</div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="tab" data-tab>
+      <div class="tab__header" data-tab-header>
+        <button class="tab__button" data-tab-item data-active>Таб 1</button>
+        <button class="tab__button" data-tab-item>Таб 2</button>
+        <button class="tab__button" data-tab-item>Таб 3</button>
+        <button class="tab__button" data-tab-item>Таб 4</button>
+      </div>
+      <div class="tab__content">
+        <div class="tab__body" data-tab-body data-active>
+          <p>1Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+        </div>
+        <div class="tab__body" data-tab-body>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+        </div>
+        <div class="tab__body" data-tab-body>
+          <p>3Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+        </div>
+        <div class="tab__body" data-tab-body>
+          <p>4Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+          <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-slider">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Слайдеры</div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="slider swiper">
+      <div class="slider__wrapper swiper-wrapper">
+        <div class="slider__slide slide swiper-slide">
+          <div class="slide__image image-box image-box_zoom">
+            <picture>
+              <source srcset="./assets/images/slide-1.avif" type="image/avif">
+              <source srcset="./assets/images/slide-1.webp" type="image/webp">
+              <img loading="lazy" src="./assets/images/slide-1.jpg" data-original="./assets/images/image-1.jpg"
+                data-viewer alt="">
+            </picture>
+          </div>
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+
+        <div class="slider__slide slide swiper-slide">
+          <div class="slide__image">
+            <picture>
+              <source srcset="./assets/images/slide-2.avif" type="image/avif">
+              <source srcset="./assets/images/slide-2.webp" type="image/webp">
+              <img loading="lazy" src="./assets/images/slide-2.jpg" alt="">
+            </picture>
+          </div>
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="slider__slide slide swiper-slide">
+          <div class="slide__image">
+            <picture>
+              <source srcset="./assets/images/slide-3.avif" type="image/avif">
+              <source srcset="./assets/images/slide-3.webp" type="image/webp">
+              <img loading="lazy" src="./assets/images/slide-3.jpg" alt="">
+            </picture>
+          </div>
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+      </div>
+      <div class="slider__navigation">
+        <div class="slider__arrow slider__arrow_prev">
+          <span class="icon icon-slider-prev"></span>
+        </div>
+        <div class="slider__arrow slider__arrow_next">
+          <span class="icon icon-slider-next"></span>
+        </div>
+      </div>
+      <div class="slider__dots"></div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-modals">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">
+      Модальные окна
+    </div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <button class="button button_secondary button_outlined button_big" data-modal-button="test">
+      Открыть окно
+    </button>
+
+    <button class="button button_secondary button_outlined button_big" data-modal-button="step-form">
+      Открыть окно с формой
+    </button>
+
+    <div class="modal" data-modal="test">
+      <div class="flex flex-column items-center">
+        <h2 class="text-big text-color-main text-center">
+          Заголовок в модальном окне
+        </h2>
+        <br>
+        <p>Текст в модальном окне</p>
+      </div>
+    </div>
+
+    <div class="modal" data-modal="step-form">
+      <div class="flex flex-column items-center">
+        <h2 class="text-level-1 text-color-main text-center">
+          Заголовок в модальном окне
+        </h2>
+
+        <form action="#" id="form_step" class="form step-form">
+  <div class="form__process step-form-process">
+    <div class="step-form-process__progress step-form-progress"></div>
+    <div class="step-form-process__inner">
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">1</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 1</span>
+          <span>Укажите данные Вашей почты и имя/фамилию</span>
+        </div>
+      </div>
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">2</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 2</span>
+          <span>Чтобы связаться с Вами нам необходим Ваш номер телефона</span>
+        </div>
+      </div>
+      <div class="step-form-process-item">
+        <span class="step-form-process-item__number">3</span>
+        <div class="step-form-process-item__text">
+          <span>Шаг 3</span>
+          <span>Опишите вашу проблему</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form__inner step-form-body">
+    <fieldset class="form__step step-form-item">
+      <div class="row row-gap-1 row-gap-y-2">
+        <div class="col-md-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Email <span>*</span></span>
+            <div class="field">
+              <input type="email" inputmode="email" class="field__input" name="email" placeholder="Ваша почта..."
+                value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Имя/фамилия <span>*</span></span>
+            <div class="field">
+              <input type="text" class="field__input" name="name" placeholder="Ваше имя..." value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="field-box">
+            <span class="field-box__name">Телефон <span>*</span></span>
+            <div class="field">
+              <div class="field__select">
+                <select data-select data-select-phone>
+                  <option data-display="Select" value="+375">+375</option>
+                  <option value="+48">+48</option>
+                  <option value="+8">+8</option>
+                </select>
+              </div>
+              <input type="text" class="field__input" name="phone" data-placeholder="Ваш номер телефона...">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </fieldset>
+
+    <fieldset class="form__step step-form-item">
+      <div class="row row-gap-1 row-gap-y-2">
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Дополнительные данные</span>
+            <div class="field">
+              <input type="text" class="field__input" name="phone" placeholder="@vasia.pupkin" value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Тема</span>
+            <div class="field">
+              <input type="text" class="field__input" name="subject" placeholder="Тема письма..." value="">
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="form__step step-form-item">
+      <div class="row">
+        <div class="col-lg-12 col-6">
+          <div class="field-box">
+            <span class="field-box__name">Сообщение</span>
+            <div class="field">
+              <textarea class="field__input" name="message" placeholder="Текст Вашего сообщения..."></textarea>
+            </div>
+            <div class="field-box__error" data-field-error></div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="form__controls step-form-controls">
+    <div class="step-form-prev">
+      <button class="button button_primary button_outlined button_small" type="button">
+        <span class="button__icon icon icon-step-prev"></span>
+        Назад
+      </button>
+    </div>
+    <div class="step-form-next">
+      <button class="button button_primary button_outlined button_small" type="button">
+        Далее
+        <span class="button__icon button__icon_right icon icon-step-next"></span>
+      </button>
+    </div>
+    <div class="step-form-submit">
+      <button class="button button_secondary button_filled button_small" type="submit">Отправить</button>
+    </div>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-lightbox">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">Увеличение
+      картинок</div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="row row-gap-2">
+      <div class="col-sm-12 col-md-6 col-4">
+        <div class="image-box image-box_zoom overflow-h">
+          <picture>
+            <source srcset="./assets/images/lightbox-image-1.avif" type="image/avif">
+            <source srcset="./assets/images/lightbox-image-1.webp" type="image/webp">
+            <img src="./assets/images/lightbox-image-1.jpg" alt="" data-viewer
+              data-original="./assets/images/image-1.jpg">
+          </picture>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-4">
+        <div class="image-box image-box_zoom overflow-h">
+          <picture>
+            <source srcset="./assets/images/lightbox-image-2.avif" type="image/avif">
+            <source srcset="./assets/images/lightbox-image-2.webp" type="image/webp">
+            <img src="./assets/images/lightbox-image-2.jpg" alt="" data-viewer
+              data-original="./assets/images/image-2.jpg">
+          </picture>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-4">
+        <div class="image-box image-box_zoom overflow-h">
+          <picture>
+            <source srcset="./assets/images/lightbox-image-3.avif" type="image/avif">
+            <source srcset="./assets/images/lightbox-image-3.webp" type="image/webp">
+            <img src="./assets/images/lightbox-image.jpg" alt="" data-viewer
+              data-original="./assets/images/image-3.jpg">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="row row-gap-2 indent-top-2" id="example-ui">
+  <div class="col-12">
+    <div class="text-level-1 text-color-main" data-animate-on-scroll data-animate-class="fade-in-bottom">
+      UI элементы
+    </div>
+  </div>
+  <div class="col-12" data-animate-on-scroll data-animate-class="fade-in-bottom">
+    <div class="row row-gap-2">
+      <div class="col-md-12 col-4">
+        <div class="row row-gap-1">
+          <div class="col-12">
+            <button class="button button_text button_full">
+              Вариант 'Text'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_full">Стандартный</button>
+          </div>
+          <div class="col-12">
+            <button class="button button_outlined button_full">
+              Вариант 'Outlined'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_filled button_primary button_full">
+              <span class="button__icon icon icon-love"></span>
+              Вариант 'Filled'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_filled button_primary button_full">
+              Color 'Primary'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_filled button_secondary button_full">
+              Color 'Secondary'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_small button_full">
+              Size 'Small'
+            </button>
+          </div>
+          <div class="col-12">
+            <button class="button button_big button_full">Size 'Big'</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-8">
+        <div class="row row-gap-1">
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Checkbox</div>
+
+            <div class="indent-y-1">
+              <label class="checkbox">
+                <input name="checkbox-1" type="checkbox" disabled checked>
+                <span class="checkbox__icon"></span>
+                <span class="checkbox__text">Отключенный выделенный пункт</span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="checkbox">
+                <input name="checkbox-2" type="checkbox" disabled>
+                <span class="checkbox__icon"></span>
+                <span class="checkbox__text">Отключенный пункт</span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="checkbox">
+                <input name="checkbox-3" type="checkbox">
+                <span class="checkbox__text">Пункт</span>
+                <span class="checkbox__icon"></span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="checkbox checkbox_secondary">
+                <input name="checkbox-4" type="checkbox" checked>
+                <span class="checkbox__text">Пункт</span>
+                <span class="checkbox__icon"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Radio</div>
+
+            <div class="indent-y-1">
+              <label class="radio">
+                <input name="radio-test" type="radio" disabled>
+                <span class="radio__icon"></span>
+                <span class="radio__text">Отключенный пункт</span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="radio">
+                <input name="radio-test" type="radio">
+                <span class="radio__icon"></span>
+                <span class="radio__text">Пункт 1</span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="radio">
+                <input name="radio-test" type="radio">
+                <span class="radio__icon"></span>
+                <span class="radio__text">Пункт 2</span>
+              </label>
+            </div>
+            <div class="indent-y-1">
+              <label class="radio radio_secondary">
+                <input name="radio-test" type="radio">
+                <span class="radio__icon"></span>
+                <span class="radio__text">Пункт 3</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Switch</div>
+
+            <div class="indent-y-1">
+              <label class="switch">
+                <input name="switch" type="checkbox" checked disabled>
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+
+            <div class="indent-y-1">
+              <label class="switch">
+                <input name="switch" type="checkbox">
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+
+            <div class="indent-y-1">
+              <label class="switch switch_secondary">
+                <input name="switch" type="checkbox" checked>
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Number</div>
+
+            <div class="indent-y-1">
+              <div class="number-field" data-number-field>
+                <button class="number-field__button number-field__decrement" data-number-field-decrement
+                  title="Минимум 0"></button>
+                <input type="number" min="0" max="10" step="1" value="1" readonly>
+                <button class="number-field__button number-field__increment" data-number-field-increment
+                  title="Максимум 10"></button>
+              </div>
+            </div>
+
+            <div class="indent-y-1">
+              <div class="number-field number-field_secondary" data-number-field>
+                <button class="number-field__button number-field__decrement" data-number-field-decrement
+                  title="Минимум 0"></button>
+                <input type="number" min="0" max="100" step="6" value="0" readonly>
+                <button class="number-field__button number-field__increment" data-number-field-increment
+                  title="Максимум 100"></button>
+              </div>
+            </div>
+
+            <div class="indent-y-1">
+              <div class="number-field number-field_secondary" data-number-field>
+                <button class="number-field__button number-field__decrement" data-number-field-decrement
+                  title="Минимум 0" disabled></button>
+                <input type="number" min="0" max="100" step="6" value="0" readonly>
+                <button class="number-field__button number-field__increment" data-number-field-increment
+                  title="Максимум 100" disabled></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Select Box</div>
+
+            <div class="indent-y-1">
+              <select class="selectbox" data-select>
+                <option value="" disabled selected hidden>
+                  -- Не выбрано --
+                </option>
+                <option value="value 1">Пункт 1</option>
+                <option value="value 2">Пункт 2</option>
+                <optgroup label="Заголовок" data-icon="like"></optgroup>
+                <option value="value 3">Пункт 3</option>
+                <optgroup label="Ещё заголовок" data-icon="love"></optgroup>
+                <option value="value 4">Пункт 4</option>
+                <option value="disabled" disabled>Не рабочий пункт</option>
+              </select>
+            </div>
+
+            <div class="indent-y-1">
+              <select class="selectbox" data-select disabled>
+                <option value="" disabled selected hidden>
+                  -- Не выбрано --
+                </option>
+                <option value="value 1">Пункт 1</option>
+                <option value="value 2">Пункт 2</option>
+                <optgroup label="Заголовок" data-icon="like"></optgroup>
+                <option value="value 3">Пункт 3</option>
+                <optgroup label="Ещё заголовок" data-icon="love"></optgroup>
+                <option value="value 4">Пункт 4</option>
+                <option value="disabled" disabled>Не рабочий пункт</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-4">
+            <div class="text-big text-weight-600">Counter</div>
+
+            <div class="indent-y-1">
+              <span class="text-level-1 text-color-main" data-counter data-number="1111" data-time="2000"
+                data-step="11">
+                0
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-6">
+            <div class="text-big text-weight-600">Field</div>
+
+            <div class="indent-y-3">
+              <div class="field">
+                <input type="text" class="field__input" name="phone" data-placeholder="Ваш номер телефона...">
+              </div>
+            </div>
+
+            <div class="indent-y-3">
+              <div class="field">
+                <span class="icon icon_primary icon-like"></span>
+                <div class="field__select">
+                  <select data-select>
+                    <option data-display="Select" value="ru" data-icon="love">
+                      RU
+                    </option>
+                    <option value="en" data-icon="like">EN</option>
+                    <option value="pl" data-icon="unlike">PL</option>
+                  </select>
+                </div>
+                <input type="text" class="field__input" name="name" data-placeholder="Название...">
+              </div>
+            </div>
+
+            <div class="indent-y-3">
+              <div class="field">
+                <div class="field__select">
+                  <select data-select data-select-phone>
+                    <option data-display="Select" value="+375">+375</option>
+                    <option value="+48">+48</option>
+                    <option value="+7">+7</option>
+                  </select>
+                </div>
+                <input type="text" class="field__input" name="phone" data-placeholder="Ваш номер телефона...">
+              </div>
+            </div>
+
+            <div class="text-big text-weight-600 indent-top-3">Tooltip</div>
+
+            <div class="indent-y-2">
+              <span data-tooltip="Привет, я подсказка!">
+                Подсказка
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-6">
+            <div class="text-big text-weight-600">Field Box</div>
+
+            <div class="indent-y-3">
+              <div class="field-box">
+                <span class="field-box__name">Имя/фамилия <span>*</span></span>
+                <div class="field">
+                  <input type="text" class="field__input" name="phone" data-placeholder="Введите текст...">
+                </div>
+                <span class="field-box__hint">Тут может находится текст подсказки!</span>
+              </div>
+            </div>
+
+            <div class="indent-y-3">
+              <div class="field-box field-box_error">
+                <span class="field-box__name">Название</span>
+                <div class="field">
+                  <input type="text" class="field__input" name="phone" data-placeholder="Введите текст...">
+                </div>
+                <div class="field-box__error" data-field-error>
+                  <p>Это поле обязательно для заполнения!</p>
+                  <p>Длина данного поля составляет 10 символов!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="indent-y-3">
+              <div class="field-box field-box_success">
+                <span class="field-box__name">
+                  Название
+                  <span data-tooltip="Необходимо ввести полное название фирмы."
+                    class="icon icon_primary icon-ask"></span>
+                </span>
+                <div class="field">
+                  <input type="text" class="field__input" name="phone" data-placeholder="Введите текст...">
+                </div>
+                <span class="field-box__hint">Тут может находится текст подсказки!</span>
+              </div>
+            </div>
+          </div>
+
+          <div class=col-md-12 col-4">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
